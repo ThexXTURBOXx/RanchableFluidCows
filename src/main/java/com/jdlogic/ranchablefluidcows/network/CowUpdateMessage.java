@@ -21,7 +21,7 @@ public class CowUpdateMessage implements IMessage
     public CowUpdateMessage(EntityFluidCow cow)
     {
         this.entityID = cow.getEntityId();
-        this.currentCooldown = cow.getCurrentUseCooldown();
+        this.currentCooldown = cow.getNextUseCooldown();
     }
 
     @Override
@@ -53,7 +53,7 @@ public class CowUpdateMessage implements IMessage
 
                     if (entity != null && entity instanceof EntityFluidCow)
                     {
-                        ((EntityFluidCow)entity).setCurrentUseCooldown(message.currentCooldown);
+                        ((EntityFluidCow)entity).setNextUseCooldown(message.currentCooldown);
                     }
                 }
             }
